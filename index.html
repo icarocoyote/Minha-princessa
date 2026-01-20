@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
+<head> 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pra Você ❤️</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
+h1 {
+    font-family: 'Dancing Script', cursive;
+}
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #ff758c, #ff7eb3);
     color: white;
     text-align: center;
@@ -24,11 +28,13 @@ body {
 h1 {
     font-size: 2.2em;
     margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 .message {
-    font-size: 1.2em;
+    font-size: 1.15em;
     margin: 20px 0;
+    line-height: 1.6;
 }
 
 .counter {
@@ -37,6 +43,8 @@ h1 {
     background: rgba(0,0,0,0.25);
     padding: 15px;
     border-radius: 15px;
+    animation: pulse 3.5s infinite ease-in-out;
+}
 }
 
 .slider {
@@ -84,9 +92,17 @@ h1 {
 
     <div class="message">
         <!-- EDITE A MENSAGEM AQUI -->
-        Desde o dia que você entrou na minha vida, tudo ficou mais bonito.
-        Isso aqui é só um pedacinho do quanto você é especial pra mim.
-        O melhor presente que Jesus me deu, quero te amar de todo meu coração! 
+        A gente se conheceu do jeito mais improvável: pelo Instagram. No começo era só amizade, conversa boba, risadas… Nosso ponto forte? Um meme que virou história: “eu sou uma rata senhora”. E foi assim que, sem perceber, você já fazia parte da minha vida.
+
+Com o tempo, você mostrou que gostava de mim. E foi aí que algo mudou. Eu tive um sonho… nós dois juntos, como casal, vivendo algo real. Quando acordei, não consegui mais te olhar do mesmo jeito. Passei a te ver com outros olhos — com o coração.
+
+Nosso namoro começou à distância, virtual, mas o sentimento nunca foi pequeno. Pelo contrário. Ele cresceu tanto que me fez atravessar quilômetros, sair da Bahia e ir até Santo André só pra te encontrar.
+
+Isso não foi só uma viagem. Foi a prova de que o que sinto por você é verdadeiro.
+
+Hoje eu sei: eu amo você. Amo sua história comigo, amo o que a gente construiu e amo tudo o que ainda vamos viver.
+
+Você é minha pessoa. Minha Rata. Meu amor. 
     </div>
     <div class="counter" id="counter">
         Carregando nosso tempo juntos...
@@ -194,3 +210,4 @@ document.addEventListener("click", () => {
 </audio>
 
 </html>
+
