@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pra Você ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 30px 15px;
+    max-width: 900px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+.message {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.counter {
+    font-size: 1.1em;
+    margin: 25px 0;
+    background: rgba(0,0,0,0.25);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.slider img {
+    width: 100%;
+    border-radius: 20px;
+    display: none;
+}
+
+.slider img.active {
+    display: block;
+}
+
+.spotify {
+    margin: 30px 0;
+}
+
+/* Emojis caindo */
+.emoji {
+    position: fixed;
+    top: -50px;
+    font-size: 24px;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>❤️ Minha Pessoa Favorita ❤️</h1>
+
+    <div class="message">
+        <!-- EDITE A MENSAGEM AQUI -->
+        Desde o dia que você entrou na minha vida, tudo ficou mais bonito.
+        Isso aqui é só um pedacinho do quanto você é especial pra mim.
+        O melhor presente que Jesus me deu, quero te amar de todo meu coração! 
+    </div>
+    <div class="counter" id="counter">
+        Carregando nosso tempo juntos...
+    </div>
+
+    <div class="slider">
+        <!-- Momentos... -->
+        <img src="foto1.jpg" class="active">
+        <img src="foto2.jpg">
+        <img src="foto3.jpg">
+        <img src="foto4.jpg">
+        <img src="foto5.jpg">
+        <img src="foto6.jpg">
+        <img src="foto7.jpg">
+        <img src="foto8.jpg">
+        <img src="foto9.jpg">
+        <img src="foto10.jpg">
+    </div>
+
+    <div class="spotify">
+        <!-- COLE AQUI O LINK EMBED DO SPOTIFY -->
+        <iframe style="border-radius:12px"
+            src="https://open.spotify.com/embed/track/6R6EFWOFwrXg0sEtz9QnUe?si=p3Y59Q05RWuO5YCgVK3Vvg"
+            width="100%" height="152"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+    </div>
+
+</div>
+
+<script>
+// ============================
+// CONTADOR DE TEMPO
+// ============================
+
+// EDITE A DATA AQUI (ANO, MES-1, DIA, HORA, MINUTO, SEGUNDO)
+const startDate = new Date(2023, 07, 1, 0, 0, 0);
+
+function updateCounter() {
+    const now = new Date();
+    let diff = now - startDate;
+
+    const seconds = Math.floor(diff / 1000) % 60;
+    const minutes = Math.floor(diff / (1000 * 60)) % 60;
+    const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    const years = Math.floor(days / 365);
+    const remainingDays = days % 365;
+
+    document.getElementById("counter").innerHTML =
+        `Estamos juntos há <br>
+        <strong>${years}</strong> anos,
+        <strong>${remainingDays}</strong> dias,
+        <strong>${hours}</strong> horas,
+        <strong>${minutes}</strong> minutos e
+        <strong>${seconds}</strong> segundos ❤️`;
+}
+
+setInterval(updateCounter, 1000);
+updateCounter();
+
+// ============================
+// SLIDER DE FOTOS
+// ============================
+let index = 0;
+const images = document.querySelectorAll(".slider img");
+
+setInterval(() => {
+    images[index].classList.remove("active");
+    index = (index + 1) % images.length;
+    images[index].classList.add("active");
+}, 3000);
+
+// ============================
+// CHUVA DE EMOJIS
+// ============================
+const emojis = ["❤️","💖","💘","😍","🥰"];
+
+setInterval(() => {
+    const emoji = document.createElement("div");
+    emoji.classList.add("emoji");
+    emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+    emoji.style.left = Math.random() * 100 + "vw";
+    emoji.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+    document.body.appendChild(emoji);
+
+    setTimeout(() => {
+        emoji.remove();
+    }, 6000);
+}, 300);
+</script>
+
+</body>
+</html>
